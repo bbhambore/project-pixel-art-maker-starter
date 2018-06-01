@@ -10,7 +10,7 @@ $('#submit').click(function makeGrid(event) {
 
     //Remove the existing grid if present
     if($('#pixelCanvas>tr').length) {
-        console.log("Removing the existing canvas");
+        //console.log("Removing the existing canvas");
         $('#pixelCanvas>tr').remove();
     }
 
@@ -18,7 +18,7 @@ $('#submit').click(function makeGrid(event) {
     let rows = $('#inputHeight').val();
     let columns = $('#inputWidth').val();
     let data = '';
-    console.log("Grid size: "+rows+"*"+columns);
+    //console.log("Grid size: "+rows+"*"+columns);
 
     //Construct the table
     for (let i=0;i<rows;i++) {
