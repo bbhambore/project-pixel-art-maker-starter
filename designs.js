@@ -25,3 +25,7 @@ $('#submit').click(function makeGrid(event) {
     }
     $('#pixelCanvas').append(data);
 });
+
+$('#pixelCanvas').on('click', 'td', function applyColor(event) {
+    $(this).css('background-color',$('#colorPicker').val());
+});
