@@ -1,24 +1,24 @@
-// Select color input
-// Select size input
+const row_input = $('#inputHeight');
+const col_input = $('#inputWidth');
+const table = $('#pixelCanvas');
 
-// When size is submitted by the user, call makeGrid()
-
-// Add grid based on user input
+/**
+* @description Accepts dimensions from user to create a grid box
+* @param {object} event
+**/
 $('#submit').click(function makeGrid(event) {
     //Prevent the page from being refreshed
     event.preventDefault();
 
     //Remove the existing grid if present
     if($('#pixelCanvas>tr').length) {
-        //console.log("Removing the existing canvas");
         $('#pixelCanvas>tr').remove();
     }
 
     //Get the input height and width
-    let rows = $('#inputHeight').val();
-    let columns = $('#inputWidth').val();
+    let rows = row_input.val();
+    let columns = col_input.val();
     let data = '';
-    //console.log("Grid size: "+rows+"*"+columns);
 
     //Construct the table
     for (let i=0;i<rows;i++) {
@@ -28,10 +28,13 @@ $('#submit').click(function makeGrid(event) {
         }
         data+= '</tr>';
     }
-    $('#pixelCanvas').append(data);
+    table.append(data);
 });
 
-//Add color to the grid
-$('#pixelCanvas').on('click', 'td', function applyColor(event) {
+/**
+* @description When the user clicks any of the grids, apply user selected color as its background
+* @param {object} event
+**/
+table.on('click', 'td', function applyColor(event) {
     $(this).css('background-color',$('#colorPicker').val());
 });
